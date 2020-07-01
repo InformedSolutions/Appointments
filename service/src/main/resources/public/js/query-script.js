@@ -6,9 +6,8 @@ $(document).ready(function() {
     $.get(url, function(appointment) {
        console.log('In post callback function - ', appointment);
        $("#appointment").empty();
-       let html = "<h3 class='title'>" + appointment.title + "</h3>";
+       let html = "<h3 class='title'>" + appointment.id + "</h3>";
        html += "<ul>"
-       html += "<li>id: " + appointment.id + "</li>";
        html += "<li>datetime: " + appointment.datetime + "</li>";
        html += "<li>duration: " + appointment.duration + "</li>";
        html += "<li>provider: " + appointment.provider + "</li>";
