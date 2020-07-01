@@ -13,15 +13,15 @@ public class Appointment {
     private String id;
     private Date datetime;
     private float duration;
-    private Provider provider;
-    private Client client;
+    private String provider; //Provider
+    private String client; // Client
     private float cost;
     private String description;
     private char flag;
 
     public Appointment() {}
 
-    public Appointment(String id, Date datetime, float duration, Provider provider, Client client, float cost, String description, char flag) {
+    public Appointment(String id, Date datetime, float duration, String provider, String client, float cost, String description, char flag) {
         super();
         this.id = id;
         this.datetime = datetime;
@@ -46,13 +46,13 @@ public class Appointment {
 
     public void setDuration(float duration) { this.duration = duration; }
 
-    public Provider getProvider() { return provider; }
+    public String getProvider() { return provider; }
 
-    public void setProvider(Provider provider) { this.provider = provider; }
+    public void setProvider(String provider) { this.provider = provider; }
 
-    public Client getClient() { return client; }
+    public String getClient() { return client; }
 
-    public void setClient(Client client) { this.client = client; }
+    public void setClient(String client) { this.client = client; }
 
     public float getCost() { return cost; }
 
