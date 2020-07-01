@@ -1,67 +1,69 @@
 
-CREATE DATABASE `AppointmentsDB`;
+CREATE DATABASE appointmentsdb;
 
-CREATE USER 'user'@'localhost' IDENTIFIED by 'user123';
-GRANT ALL on clients.* TO 'user'@'localhost';
-GRANT ALL on providers.* TO 'user'@'localhost';
+CREATE USER user@localhost IDENTIFIED by user123;
+GRANT ALL on clients.* TO user@localhost;
+GRANT ALL on providers.* TO user@localhost;
 
-CREATE TABLE `appointments` (
-  `id` varchar(45) NOT NULL,
-  `datetime` datetime NOT NULL,
-  `duration` decimal(2,0) NOT NULL,
-  `provider` varchar(45) DEFAULT NULL,
-  `client` varchar(45) DEFAULT NULL,
-  `cost` decimal(2,0) DEFAULT NULL,
-  `description` varchar(45) DEFAULT NULL,
-  `flag` varchar(45) DEFAULT NULL
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+CREATE TABLE appointmentsdb.appointments (
+  id VARCHAR(45) NOT NULL,
+  datetime DATETIME NOT NULL,
+  duration VARCHAR(45) NOT NULL,
+  provider VARCHAR(45) NULL,
+  client VARCHAR(45) NULL,
+  cost VARCHAR(45) NULL,
+  description VARCHAR(45) NULL,
+  flag VARCHAR(45) NULL,
+  PRIMARY KEY (id));
 
-SELECT `appointments`.`id`,
-    'appointments'.'`id`,
-    'appointments'.'`datetime`,
-    'appointments'.'`duration`,
-    'appointments'.'`provider`,
-    'appointments'.'`client`,
-    'appointments'.'`cost`,
-    'appointments'.'`description`,
-    'appointments'.'`flag`
-FROM `AppointmentsDB`.`appointments`;
+  INSERT INTO appointmentsdb.appointments (id,datetime,duration,provider,client,cost,description,flag)
+  VALUES ('1', '2020-07-01T14:40:30.828177','0.5','1','3','100','Stretching work','C'),
+  ('2', '2020-03-03T10:23:30.123456','1.0','3','2','150','Dental work','A'),
+  ('3', '2020-01-21T09:40:30.762323','0.5','2','1','87','Check up','M');
 
-CREATE TABLE `clients` (
-  `id` int(45) NOT NULL,
-  `name` varchar(45) NOT NULL,
-  `address` varchar(45) NOT NULL,
-  `phoneNumber` varchar(45) DEFAULT NULL,
-  `emailAddress` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+SELECT appointments.id,
+    appointments.datetime,
+    appointments.duration,
+    appointments.provider,
+    appointments.client,
+    appointments.cost,
+    appointments.description,
+    appointments.flag
+FROM appointmentsdb.appointments;
 
-INSERT INTO clients (id,name,address,phoneNumber,emailAddress)
-VALUES (1, 'John Smith', 'IS, Old Bank, Altrincham, WA144pa', '01204 123 456', 'IS@email.com'),
-(2, 'Jane Doe', '6, River Way, Cheltenham, CH14OL', '01204 456 789', 'JD@email.com'),
-(3, 'Tony Evans', '42, Wallaby Way, Sydney, SY78RT', '01204 378 129', 'TEvans@email.com');
+CREATE TABLE appointmentsdb.clients (
+  id INT NOT NULL,
+  name VARCHAR(45) NOT NULL,
+  address VARCHAR(45) NOT NULL,
+  phoneNumber VARCHAR(45) NULL,
+  emailAddress VARCHAR(45) NULL,
+  PRIMARY KEY (id));
 
-SELECT `clients`.`id`,
-    `clients`.`name`,
-    `clients`.`address`,
-    `clients`.`phoneNumber`,
-    'clients'.'emailAddress',
-FROM `clientDB`.`clients`;
+INSERT INTO appointmentsdb.clients (id,name,address,phoneNumber,emailAddress)
+VALUES ('1', 'John Smith', 'IS, Old Bank, Altrincham, WA144pa', '01204 123 456', 'IS@email.com'),
+('2', 'Jane Doe', '6, River Way, Cheltenham, CH14OL, 01204 456 789', 'JD@email.com'),
+('3', 'Tony Evans', '42, Wallaby Way, Sydney, SY78RT, 01204 378 129', 'TEvans@email.com');
 
-CREATE TABLE `providers` (
-  `id` int(45) NOT NULL,
-  `name` varchar(45) NOT NULL,
-  `areaOfExpertise` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+SELECT clients.id,
+    clients.name,
+    clients.address,
+    clients.phoneNumber,
+    clients.emailAddress
+FROM appointmentsdb.clients;
 
-INSERT INTO providers (id,name,areaOfExpertise)
-VALUES (1, 'Alastair Jones', 'Physio'),
-(2, 'Kate Pond', 'Doctor'),
-(3, 'Lucy Summers','Dentist');
+CREATE TABLE providers (
+  id varchar(45) NOT NULL,
+  name varchar(45) NOT NULL,
+  areaOfExpertise varchar(45) DEFAULT NULL,
+  PRIMARY KEY (id)
+);
 
-SELECT `providers`.`id`,
-    `providers`.`name`,
-    `providers`.`areaOfExpertise`,
-FROM `AppointmentsDB`.`providers`;
+INSERT INTO appointmentsdb.providers (id,name,areaOfExpertise)
+VALUES ('1', 'Alastair Jones', 'Physio'),
+('2', 'Kate Pond', 'Doctor'),
+('3', 'Lucy Summers','Dentist');
+
+SELECT providers.id,
+    providers.name,
+    providers.areaOfExpertise
+FROM appointmentsdb.providers;

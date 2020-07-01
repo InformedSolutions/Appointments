@@ -9,7 +9,7 @@ import javax.persistence.Table;
 public class Client {
 
     @Id
-    private int id;
+    private String id;
     private String name;
     private String address;
     private String phoneNumber;
@@ -17,7 +17,7 @@ public class Client {
 
     public Client() {}
 
-    public Client(int id, String name, String address, String phoneNumber, String emailAddress) {
+    public Client(String id, String name, String address, String phoneNumber, String emailAddress) {
         this.id = id;
         this.name = name;
         this.address = address;
@@ -25,11 +25,11 @@ public class Client {
         this.emailAddress = emailAddress;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
