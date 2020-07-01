@@ -10,7 +10,7 @@ import java.util.Date;
 public class Appointment {
 
     @Id
-    private int id;
+    private String id;
     private Date datetime;
     private float duration;
     private Provider provider;
@@ -21,7 +21,7 @@ public class Appointment {
 
     public Appointment() {}
 
-    public Appointment(int id, Date datetime, float duration, Provider provider, Client client, float cost, String description, char flag) {
+    public Appointment(String id, Date datetime, float duration, Provider provider, Client client, float cost, String description, char flag) {
         super();
         this.id = id;
         this.datetime = datetime;
@@ -33,9 +33,9 @@ public class Appointment {
         this.flag = flag;
     }
 
-    public int getId() { return id; }
+    public String getId() { return id; }
 
-    public void setId(int id) { this.id = id; }
+    public void setId(String id) { this.id = id; }
 
     public Date getDatetime() { return datetime;
     }
