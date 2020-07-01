@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import com.is.appointment.domain.Appointment;
 import com.is.appointment.domain.AppointmentNotFoundException;
@@ -40,9 +41,31 @@ public class AppointmentService {
         repository.deleteById(id);
     }
 
-    public Appointment getAppointment(String id) {
-        System.out.println("AppointmentService.getAppointment(" + id + ")");
-        Optional<Appointment> optionalBook = repository.findById(id);
-        return optionalBook.orElseThrow(() -> new AppointmentNotFoundException("Couldn't find an appointment with id: " + id));
+    public Appointment getAppointmentById(String id) {
+        System.out.println("AppointmentService.getAppointmentById(" + id + ")");
+        Optional<Appointment> optionalAppointment = repository.findById(id);
+        return optionalAppointment.orElseThrow(() -> new AppointmentNotFoundException("Couldn't find an appointment with id: " + id));
+    }
+
+    public List<Appointment> getAppointmentsByProvider(String id) {
+        System.out.println("AppointmentService.getAppointmentsByProvider(" + id + ")");
+        List<Appointment> allAppointments = (List<Appointment>) repository.findAll();
+        List<Appointment> providerAppointments = allAppointments.stream().filter(b -> b.getProvider().getId() == id).collect(Collectors.toList());
+        if (providerAppointments.size() < 1)
+        {
+            throw new AppointmentNotFoundException("Couldn't find any appointments for Provider with id: " + id);
+        }
+       return providerAppointments;
+    }
+
+    public List<Appointment> getAppointmentsByClient(String id) {
+        System.out.println("AppointmentService.getAppointmentsByClient(" + id + ")");
+        List<Appointment> allAppointments = (List<Appointment>) repository.findAll();
+        List<Appointment> clientAppointments = allAppointments.stream().filter(b -> b.getClient().getId() == id).collect(Collectors.toList());
+        if (clientAppointments.size() < 1)
+        {
+            throw new AppointmentNotFoundException("Couldn't find any appointments for Client with id: " + id);
+        }
+        return clientAppointments;
     }
 }

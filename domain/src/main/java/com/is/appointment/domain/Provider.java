@@ -9,24 +9,24 @@ import javax.persistence.Table;
 public class Provider {
 
     @Id
-    private int id;
+    private String id;
     private String name;
     private String areaOfExpertise;
 
     public Provider() {
     }
 
-    public Provider(int id, String name, String areaOfExpertise) {
+    public Provider(String id, String name, String areaOfExpertise) {
         this.id = id;
         this.name = name;
         this.areaOfExpertise = areaOfExpertise;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
