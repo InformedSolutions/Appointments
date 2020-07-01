@@ -42,7 +42,7 @@ public class AppointmentService {
     }
 
     public Appointment getAppointment(String id) {
-        System.out.println("AppointmentService.getAppointmentById(" + id + ")");
+        System.out.println("AppointmentService.getAppointment(" + id + ")");
         Optional<Appointment> optionalAppointment = repository.findById(id);
         return optionalAppointment.orElseThrow(() -> new AppointmentNotFoundException("Couldn't find an appointment with id: " + id));
     }
@@ -62,6 +62,7 @@ public class AppointmentService {
         System.out.println("AppointmentService.getAppointmentsByClient(" + id + ")");
         List<Appointment> allAppointments = (List<Appointment>) repository.findAll();
         List<Appointment> clientAppointments = allAppointments.stream().filter(b -> b.getClient() == id).collect(Collectors.toList());
+        System.out.println(clientAppointments);
         if (clientAppointments.size() < 1)
         {
             throw new AppointmentNotFoundException("Couldn't find any appointments for Client with id: " + id);
