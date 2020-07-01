@@ -1,0 +1,23 @@
+
+CREATE TABLE `appointments` (
+  `id` varchar(45) NOT NULL,
+  `datetime` datetime NOT NULL,
+  `duration` decimal(2,0) NOT NULL,
+  `provider` varchar(45) DEFAULT NULL,
+  `client` varchar(45) DEFAULT NULL,
+  `cost` decimal(2,0) DEFAULT NULL,
+  `description` varchar(45) DEFAULT NULL,
+  `flag` varchar(45) DEFAULT NULL
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+SELECT `appointments`.`id`,
+    'appointments'.'`id`,
+    'appointments'.'`datetime`,
+    'appointments'.'`duration`,
+    'appointments'.'`provider`,
+    'appointments'.'`client`,
+    'appointments'.'`cost`,
+    'appointments'.'`description`,
+    'appointments'.'`flag`
+FROM `AppointmentsDB`.`appointments`;
