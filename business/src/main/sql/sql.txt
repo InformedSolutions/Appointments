@@ -1,4 +1,10 @@
 
+CREATE DATABASE `AppointmentsDB`;
+
+CREATE USER 'user'@'localhost' IDENTIFIED by 'user123';
+GRANT ALL on clients.* TO 'user'@'localhost';
+GRANT ALL on providers.* TO 'user'@'localhost';
+
 CREATE TABLE `appointments` (
   `id` varchar(45) NOT NULL,
   `datetime` datetime NOT NULL,
@@ -21,3 +27,41 @@ SELECT `appointments`.`id`,
     'appointments'.'`description`,
     'appointments'.'`flag`
 FROM `AppointmentsDB`.`appointments`;
+
+CREATE TABLE `clients` (
+  `id` int(45) NOT NULL,
+  `name` varchar(45) NOT NULL,
+  `address` varchar(45) NOT NULL,
+  `phoneNumber` varchar(45) DEFAULT NULL,
+  `emailAddress` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+INSERT INTO clients (id,name,address,phoneNumber,emailAddress)
+VALUES (1, 'John Smith', 'IS, Old Bank, Altrincham, WA144pa', '01204 123 456', 'IS@email.com'),
+(2, 'Jane Doe', '6, River Way, Cheltenham, CH14OL', '01204 456 789', 'JD@email.com'),
+(3, 'Tony Evans', '42, Wallaby Way, Sydney, SY78RT', '01204 378 129', 'TEvans@email.com');
+
+SELECT `clients`.`id`,
+    `clients`.`name`,
+    `clients`.`address`,
+    `clients`.`phoneNumber`,
+    'clients'.'emailAddress',
+FROM `clientDB`.`clients`;
+
+CREATE TABLE `providers` (
+  `id` int(45) NOT NULL,
+  `name` varchar(45) NOT NULL,
+  `areaOfExpertise` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+INSERT INTO providers (id,name,areaOfExpertise)
+VALUES (1, 'Alastair Jones', 'Physio'),
+(2, 'Kate Pond', 'Doctor'),
+(3, 'Lucy Summers','Dentist');
+
+SELECT `providers`.`id`,
+    `providers`.`name`,
+    `providers`.`areaOfExpertise`,
+FROM `AppointmentsDB`.`providers`;
