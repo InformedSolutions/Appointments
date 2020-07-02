@@ -70,4 +70,16 @@ public class AppointmentService {
         if (clientAppointments.size() < 1) throw new AppointmentNotFoundException("Couldn't find any appointments for Provider with id: " + id);
         return clientAppointments;
     }
+
+    public void cancelAppointment(String id) {
+        System.out.println("AppointmentService.cancelAppointment(" + id + ")");
+        Appointment appointment = getAppointment(id);
+        appointment.setFlag('C');
+        updateAppointment(appointment);
+        if (appointment == null) {
+            throw new AppointmentNotFoundException("Couldn't find an appointment with id: " + id);
+        } else {
+            System.out.println("Appointment: " + id + " was cancelled.");
+        }
+    }
 }
