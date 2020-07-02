@@ -16,6 +16,7 @@ $(document).ready(function() {
             success: function (result) {
                    console.log(result);
                    alert('Appointment Cancelled');
+                   document.getElementById("id").value = '';
             },
             error: function (e) {
                 console.log(e);
