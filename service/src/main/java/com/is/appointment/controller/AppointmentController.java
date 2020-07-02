@@ -34,7 +34,6 @@ public class AppointmentController {
     @GetMapping("list/provider/{id}")
     public List<Appointment> getAppointmentsByProvider(@PathVariable String id) {
         System.out.println("AppointmentController.getAppointmentsByProvider(" + id + ")");
-        System.out.println("Appointment: " + this.appointment.getAppointmentsByProvider(id));
         return this.appointment.getAppointmentsByProvider(id);
     }
 

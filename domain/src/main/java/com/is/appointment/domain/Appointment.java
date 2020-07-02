@@ -72,6 +72,7 @@ public class Appointment {
                 "id=" + id +
                 ", datetime=" + datetime +
                 ", duration=" + duration +
+                ", provider=" + provider +
                 ", client=" + client +
                 ", cost=" + cost +
                 ", description='" + description + '\'' +

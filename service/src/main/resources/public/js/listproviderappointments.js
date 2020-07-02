@@ -8,11 +8,11 @@ $(document).ready(function() {
           let html = "<div class='appointment'>";
           $.each(appointments, function(i, appointment) {
               console.log(appointment);
-              html += "<h3 class='title'>" + appointment.id + "</h3>";
+              html += "<h3 class='title'>Appointment " + appointment.id + "</h3>";
               html += "<ul>"
               html += "<li>datetime: " + appointment.datetime + "</li>";
               html += "<li>duration: " + appointment.duration + "</li>";
-              html += "<li>provider: " + appointment.provider + "</li>";
+              html += "<b><li>provider: " + appointment.provider + "</li></b>";
               html += "<li>client: " + appointment.client + "</li>";
               html += "<li>cost: " + appointment.cost + "</li>";
               html += "<li>description: " + appointment.description + "</li>";

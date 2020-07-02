@@ -49,24 +49,25 @@ public class AppointmentService {
 
     public List<Appointment> getAppointmentsByProvider(String id) {
         System.out.println("AppointmentService.getAppointmentsByProvider(" + id + ")");
-        List<Appointment> allAppointments = (List<Appointment>) repository.findAll();
-        List<Appointment> providerAppointments = allAppointments.stream().filter(b -> b.getProvider() == id).collect(Collectors.toList());
-        if (providerAppointments.size() < 1)
-        {
-            throw new AppointmentNotFoundException("Couldn't find any appointments for Provider with id: " + id);
-        }
-       return providerAppointments;
+        List<Appointment> allAppointments = getAllAppointments();
+        System.out.println(allAppointments);
+        List<Appointment> providerAppointments = allAppointments.stream()
+                .filter(t -> t.getProvider().equals(id))
+                .collect(Collectors.toList());
+        System.out.println(providerAppointments);
+        if (providerAppointments.size() < 1) throw new AppointmentNotFoundException("Couldn't find any appointments for Provider with id: " + id);
+        return providerAppointments;
     }
 
     public List<Appointment> getAppointmentsByClient(String id) {
         System.out.println("AppointmentService.getAppointmentsByClient(" + id + ")");
-        List<Appointment> allAppointments = (List<Appointment>) repository.findAll();
-        List<Appointment> clientAppointments = allAppointments.stream().filter(b -> b.getClient() == id).collect(Collectors.toList());
+        List<Appointment> allAppointments = getAllAppointments();
+        System.out.println(allAppointments);
+        List<Appointment> clientAppointments = allAppointments.stream()
+                .filter(t -> t.getClient().equals(id))
+                .collect(Collectors.toList());
         System.out.println(clientAppointments);
-        if (clientAppointments.size() < 1)
-        {
-            throw new AppointmentNotFoundException("Couldn't find any appointments for Client with id: " + id);
-        }
+        if (clientAppointments.size() < 1) throw new AppointmentNotFoundException("Couldn't find any appointments for Provider with id: " + id);
         return clientAppointments;
     }
 }

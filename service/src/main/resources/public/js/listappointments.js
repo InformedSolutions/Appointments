@@ -7,7 +7,7 @@ $(document).ready(function() {
           let html = "<div class='appointment'>";
           $.each(appointments, function(i, appointment) {
               console.log(appointment);
-              html += "<h3 class='title'>" + appointment.id + "</h3>";
+              html += "<h3 class='title'>Appointment " + appointment.id + "</h3>";
               html += "<ul>"
               html += "<li>datetime: " + appointment.datetime + "</li>";
               html += "<li>duration: " + appointment.duration + "</li>";
