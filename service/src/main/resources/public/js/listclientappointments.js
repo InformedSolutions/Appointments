@@ -2,7 +2,8 @@ $(document).ready(function() {
   $("#show").click(function() {
     console.log("running click on show");
     event.preventDefault();
-    $.get("http://localhost:8080/appointments/list", function(appointments) {
+    let url = "http://localhost:8080/appointments/list/client/" + $("#id").val();
+    $.get(url, function(appointments) {
           $("#appointmentlist").empty();
           let html = "<div class='appointment'>";
           $.each(appointments, function(i, appointment) {
