@@ -31,6 +31,19 @@ public class AppointmentController {
         return this.appointment.getAppointment(id);
     }
 
+    @GetMapping("list/provider/{id}")
+    public List<Appointment> getAppointmentsByProvider(@PathVariable String id) {
+        System.out.println("AppointmentController.getAppointmentsByProvider(" + id + ")");
+        System.out.println("Appointment: " + this.appointment.getAppointmentsByProvider(id));
+        return this.appointment.getAppointmentsByProvider(id);
+    }
+
+    @GetMapping("list/client/{id}")
+    public List<Appointment> getAppointmentsByClient(@PathVariable String id) {
+        System.out.println("AppointmentController.getAppointmentsByClient(" + id + ")");
+        return this.appointment.getAppointmentsByClient(id);
+    }
+
     @GetMapping("list")
     public List<Appointment> getAllAppointments() {
         System.out.println("AppointmentController.getAllAppointments()");
