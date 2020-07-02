@@ -14,17 +14,19 @@
 <p>Please enter appointment details to Add / Update a Appointment</p>
 <p>
     <form id="update-form" action="">
-        <div> Appointment id: <input type="text" name="id" value="321" id="id" /> </div><br />
-        <div> Appointment date: <input type="datetime-local" name="datetime" value="08:56:28.570018" id="datetime" > </div><br />
-        <div> Duration: <input type="text" name="duration" value="1" id="duration"/> </div><br />
-        <div> Provider id: <input type="text" name="provider" value="3" id="provider"/> </div><br />
-        <div> Client id: <input type="text" name="client" value="2" id="client" > </div><br />
-        <div> Cost: <input type="text" name="cost" value="100" id="cost"/> </div><br />
-        <div> Description: <input type="text" name="description" value="Description" id="description"/> </div><br />
-        <div> <label class="radio-inline"> <input type="radio" name="flag" value="A">Attended</label>
-              <label class="radio-inline"> <input type="radio" name="flag" value="M">Missed</label> </div><br />
+        <div class="in-line"> Appointment id: <input type="text" name="id" id="id" />
+             <button type="search" name="search" value="search" id="search">Search</button></div><br />
+        <div> Appointment date: <input type="datetime-local" name="datetime" id="datetime" > </div><br />
+        <div> Duration: <input type="text" name="duration" id="duration"/> </div><br />
+        <div> Provider id: <input type="text" name="provider" id="provider"/> </div><br />
+        <div> Client id: <input type="text" name="client" id="client" > </div><br />
+        <div> Cost: <input type="text" name="cost" id="cost"/> </div><br />
+        <div> Description: <input type="text" name="description" id="description"/> </div><br />
+        <div> <label class="radio-inline"> <input type="radio" name="flag" value="A" id="flagA">Attended</label>
+              <label class="radio-inline"> <input type="radio" name="flag" value="M" id="flagM">Missed</label> </div><br />
         <p>
-            <button type="submit" name="add" value="add">Update</button>
+            <button class="inline" type="submit" name="add" value="add" id="add">Add</button>
+            <button class="inline" type="clear" name="clear" value="clear" id="clear" >Clear</button>
         </p>
     </form>
 </p>
