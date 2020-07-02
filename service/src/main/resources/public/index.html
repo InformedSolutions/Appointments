@@ -2,9 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="js/listappointments.js"></script>
+
+    <title>Online Appointments Booking Service</title>
 </head>
 <body>
-
+<h1>Welcome</h1>
+<p>This is the Online Appointments Booking Service Welcome Page</p>
+<p>To search all appointments by ID use the <a href="queryappointment.html">Appointments Search Page</a>.
+<p>To search for an appointment by client use the <a href="queryclientappointment.html">Client Appointments Search Page</a>.</p>
+<p>To search for an appointment by provider use the <a href="queryproviderappointment.html">Provider Appointments Search Page</a>.</p>
+<p>Click on the following button to list all appointments.</p>
+<div class="button" id="show">Show all</div>
+<div id="appointmentlist"></div>
+<p>Click on the following link to Add or Update a book.</p>
+<a href="maintainappointment.html">Maintain Appointments</a>
+<p>Click on the following link to delete an appointment.</p>
+<a href="cancelappointment.html">Cancel Appointments</a>
 </body>
 </html>
