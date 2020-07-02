@@ -69,4 +69,16 @@ public class AppointmentService {
         }
         return clientAppointments;
     }
+
+    public void cancelAppointment(String id) {
+        System.out.println("AppointmentService.cancelAppointment(" + id + ")");
+        Appointment appointment = getAppointment(id);
+        appointment.setFlag('C');
+        updateAppointment(appointment);
+        if (appointment == null) {
+            throw new AppointmentNotFoundException("Couldn't find an appointment with id: " + id);
+        } else {
+            System.out.println("Appointment: " + id + " was cancelled.");
+        }
+    }
 }

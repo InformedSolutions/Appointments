@@ -5,19 +5,21 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.css" crossorigin="anonymous">
     <script src="js/jquery.serializejson.js"></script>
-    <script src="js/maintainappointments-script.js"></script>
+    <script src="js/maintainappointment.js"></script>
     <title>Appointment Booking Page</title>
 </head>
 <body>
 <h2>Appointment Booking</h2>
 <p>Please enter appointment details to Add / Update a Appointment</p>
 <p>
-    <form id="maintain-form" action="">
-        ID <input type="text" name="id" value="321" id="isbn" type="number"/> <br />
-        Title <input type="text" name="title" value="SOA" id="title"/> <br />
-        Author <input type="text" name="author" value="Adam" id="author"/> <br />
-        Price <input type="text" name="price:number" value="13.99" id="price"/> <br />
-        Category <input type="text" name="category" value="Technical" id="category"/> <br />
+    <form id="update-form" action="">
+        <input type="text" name="id" value="321" id="id" /> <br />
+        <input type="datetime-local" name="datetime" value="08:56:28.570018" id="datetime" > <br />
+        <input type="text" name="duration" value="1" id="duration"/> <br />
+        <input type="text" name="provider" value="3" id="provider"/> <br />
+        <input type="text" name="client" value="2" id="client" > <br />
+        <input type="text" name="cost" value="100" id="cost"/> <br />
+        <input type="text" name="description" value="Description" id="description"/> <br />
         <p>
             <button type="submit" name="add" value="add">Update</button>
         </p>

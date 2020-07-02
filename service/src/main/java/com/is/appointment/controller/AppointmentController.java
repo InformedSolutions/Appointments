@@ -64,11 +64,11 @@ public class AppointmentController {
         this.appointment.updateAppointment(appointment);
     }
 
-    @DeleteMapping("{id}")
+    @PostMapping("/cancel/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public void deleteAppointment(@PathVariable String id) {
-        System.out.println("AppointmentController.deleteAppointment(" + id + ")");
-        appointment.deleteAppointment(id);
+    public void cancelAppointment(@PathVariable String id) {
+        System.out.println("AppointmentController.cancelAppointment(" + id + ")");
+        appointment.cancelAppointment(id);
     }
 
     @ExceptionHandler(AppointmentNotFoundException.class)
